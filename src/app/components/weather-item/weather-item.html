@@ -1,0 +1,6 @@
+  <div class="weather-item">
+      <button type="button" class="close" aria-label="Close" ng-click="$ctrl.handleRemove($ctrl.data.id)"><span aria-hidden="true">&times;</span></button>
+    <h2>{{$ctrl.data.name}}</h2>
+      <p>{{$ctrl.data.main.temp > 0 ? '+'+$ctrl.data.main.temp : $ctrl.data.main.temp}}...{{$ctrl.data.main.temp_max > 0 ? '+'+$ctrl.data.main.temp_max : $ctrl.data.main.temp_max}}</p>
+      <p>{{$ctrl.data.weather[0].description}}</p>
+  </div>

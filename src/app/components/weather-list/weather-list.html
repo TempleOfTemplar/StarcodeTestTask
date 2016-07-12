@@ -1,0 +1,58 @@
+<div class="component">
+    <div class="row" ng-if="$ctrl.activeCities.length">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <label for="date">Погода на: </label>
+                    <input pikaday="$ctrl.pikaday" id="date" aria-describedby="helpBlock" зlaceholder="дд.мм.гггг"
+                           on-select="$ctrl.onPikadaySelect(pikaday)">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <weather-item-component class="col-md-3"
+                                ng-repeat="weatherItem in $ctrl.weatherItems" data="weatherItem"
+                                on-remove="$ctrl.removeCity(id)"></weather-item-component>
+        <div class="alert alert-warning col-md-6" role="alert" ng-click="" ng-if="!$ctrl.activeCities.length">Ваш список городов пуст. Добавитье города, чтобы увидеть прогноз погоды</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form name="form" class="form-inline" ng-submit="$ctrl.addCity()">
+                        <div class="form-group">
+                            <div angucomplete-alt
+                                 placeholder="Выберите город"
+                                 text-searching="Поиск..."
+                                 text-no-results="Ничего не найдено"
+                                 pause="400"
+                                 selected-object="$ctrl.selectedCity"
+                                 remote-api-handler="$ctrl.getCityByName"
+                                 remote-url-data-field="list"
+                                 title-field="name"
+                                 minlength="2"
+                                 input-class="form-control"
+                                 input-name="selectedCity"
+                                 field-required="true"
+                                 match-class="highlight">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" ng-disabled="!form.$valid">Добавить город
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+

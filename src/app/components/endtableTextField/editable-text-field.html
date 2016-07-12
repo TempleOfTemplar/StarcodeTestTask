@@ -1,0 +1,11 @@
+<form ng-submit="$ctrl.handleSubmit()">
+    <div class="form-group">
+   <textarea rows="4" cols="50" ng-class="{'current-edit': $ctrl.editing}"
+             class="form-control"
+             ng-disabled="!$ctrl.editing"
+             ng-model="$ctrl.text">
+</textarea>
+    </div>
+    <button class="btn btn-default" ng-click="$ctrl.switchEditable()" ng-if="!$ctrl.editing">Редактировать</button>
+    <button type="submit" class="btn btn-primary" ng-if="$ctrl.editing">Сохранить</button>
+</form>

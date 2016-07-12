@@ -1,0 +1,8 @@
+<div class="component">
+  <div class="component">
+    <h2>{{$ctrl.getCurrentStateTitle()}}</h2>
+  </div>
+  <ul class="nav nav-pills">
+    <li ng-repeat="menuItem in $ctrl.menuItems" ui-sref-active="active"> <a ui-sref="{{menuItem.route}}">{{menuItem.title}}</a></li>
+  </ul>
+</div>
